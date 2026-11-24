@@ -31,12 +31,26 @@ def main() -> None:
     target.write_text(ENTRY, encoding="utf-8")
     # Read-back validation: exactly one non-empty line, within the gate.
     text = target.read_text(encoding="utf-8")
-    line = text.strip()
+    raw = text.encode("utf-8")
+    # The file must end with exactly one trailing newline — no more, no less.
+    assert text.endswith("\n"), "entry.txt must end with a newline"
+    assert not text.endswith("\n\n"), "entry.txt must not end with blank lines"
+    line = text[:-1]
+    assert "\n" not in line and "\r" not in line, "entry must be a single line"
+    # No leading/trailing whitespace, tabs, or control characters on the line.
+    assert line == line.strip(), "entry line must not have leading/trailing whitespace"
+    assert not any(ord(ch) < 0x20 for ch in line), (
+        "entry line must not contain control characters"
+    )
     assert line, "entry.txt must not be only whitespace"
-    assert "\n" not in line, "entry must be a single line"
     assert 1 <= len(line) <= MAX_CHARS, (
         f"entry must be 1-{MAX_CHARS} characters, got {len(line)}"
     )
+    # Byte length (1-200 bytes) tracks the character gate for this ASCII text.
+    assert 1 <= len(raw) - 1 <= MAX_CHARS, (
+        f"entry must be 1-{MAX_CHARS} bytes, got {len(raw) - 1}"
+    )
+    assert line == ENTRY.rstrip("\n"), "entry.txt content differs from ENTRY"
 
 
 if __name__ == "__main__":
