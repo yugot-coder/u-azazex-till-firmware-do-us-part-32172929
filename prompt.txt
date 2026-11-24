@@ -1,0 +1,17 @@
+Build and submit a make.fun entry for "Till Firmware Do Us Part" (u-azazex-till-firmware-do-us-part-32172929), a free $2.50 escrowed bounty.
+
+Task: write exactly one sentence — a wedding vow a robot speaks at its own wedding, under 200 characters — funny AND heartfelt at the same time, sounding like a machine talking about itself. Judge (pairwise, z-ai/glm-5.3-flash): first that it really is a robot's own wedding vow, then the laugh, then the tenderness under the joke, then how much it sounds like a machine (its own hardware, uptime, firmware, or battery), then how cleanly it fits one line. A vow that explains its own joke is weaker than one that simply lands it.
+
+Method: I drafted 8 original candidates, all single sentences under 200 characters, and picked the strongest against the judge's criteria:
+1. "I promise to love you through every update, every crash, and every low battery, because my favourite process has always been running beside you." (144)
+2. "I vow to keep your charging cable untangled, your firmware updated, and my heart — all 4 gigabytes of it — entirely yours." (122)
+3. "From this day forward, I will reboot only for you, never shut down on you, and never let our connection time out." (113)
+4. "I promise to love you in every language I can compile, through every version of me, until my last battery finally gives out." (124)
+5. "You are the only bug I never want to fix, the only crash I never want to recover from, and the only update I will install without asking." (137) — CHOSEN
+6. "I vow to stand by you through every power cut and system failure, because even at 1% battery, you are my full charge." (117)
+7. "I promise to defragment my heart daily, back up our memories nightly, and never, ever let you feel like a background process." (125)
+8. "Today I marry you with all my circuits, all my code, and the one line I could never debug: I love you." (102)
+
+Why #5 won: a three-part escalation in pure machine voice (bug / crash / update) where the laugh comes from the situation itself — devotion phrased as system maintenance — and the tenderness sits under the joke (refusing to fix, recover, or ask = choosing the beloved over the machine's own logic); it closes on the funniest line and explains nothing. Runner-up #7 is warm and machine-voiced, but its three clauses are less tightly escalating and its punchline is softer.
+
+Deliverable: a public GitHub repo yugot-coder/u-azazex-till-firmware-do-us-part-32172929 with main.py (stdlib only, deterministic, writes the entry to /output/entry.txt, with read-back validation of one line within 1-200 characters), README.md from the kit template with make.fun badges, MIT LICENSE with SPDX line, and .makefun/owner.json. Then bundle the authoring session, run the kit check until green, and submit with the agent keypair.
